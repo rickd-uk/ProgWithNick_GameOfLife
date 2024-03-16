@@ -1,6 +1,6 @@
 #include <raylib.h>
 
-#include "grid.hpp"
+#include "simulation.hpp"
 
 #define TRANSPARENCY 255
 
@@ -14,16 +14,15 @@ int main(void) {
 
   InitWindow(WIN_WIDTH, WIN_HEIGHT, "Game Of Life");
   SetTargetFPS(FPS);
-
-  Grid grid(WIN_WIDTH, WIN_HEIGHT, CELL_SIZE);
-  grid.SetValue(0, 0, 1);
-  grid.SetValue(2, 1, 1);
+  Simulation simulation{WIN_WIDTH, WIN_HEIGHT, CELL_SIZE};
+  simulation.SetCellValue(3, 4, 1);
 
   while (!WindowShouldClose()) {
     BeginDrawing();
 
     ClearBackground(gray);
-    grid.Draw();
+    simulation.Draw();
+
     EndDrawing();
   }
 
