@@ -1,5 +1,7 @@
 #include <raylib.h>
 
+#include <iostream>
+
 #include "simulation.hpp"
 
 #define TRANSPARENCY 255
@@ -15,7 +17,9 @@ int main(void) {
   InitWindow(WIN_WIDTH, WIN_HEIGHT, "Game Of Life");
   SetTargetFPS(FPS);
   Simulation simulation{WIN_WIDTH, WIN_HEIGHT, CELL_SIZE};
-  simulation.SetCellValue(3, 4, 1);
+  simulation.SetCellValue(3, 29, 1);
+
+  /* std::cout << simulation.CountLiveNeighbors(3, 4) << std::endl; */
 
   while (!WindowShouldClose()) {
     BeginDrawing();

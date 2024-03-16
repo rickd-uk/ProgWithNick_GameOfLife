@@ -10,6 +10,8 @@ class Grid {
         cells(rows, std::vector<int>(cols, 0)){};
   void Draw();
   void SetValue(int row, int col, int value);
+  int GetValue(int row, int col);
+  bool IsWithinBounds(int row, int col);
 
  private:
   int rows;
