@@ -9,6 +9,7 @@ class Grid {
         cellSize(cellSize),
         cells(rows, std::vector<int>(cols, 0)){};
   void Draw();
+  void SetValue(int row, int col, int value);
 
  private:
   int rows;
