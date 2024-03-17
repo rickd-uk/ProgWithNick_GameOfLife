@@ -34,6 +34,13 @@ int main(void) {
       FPS -= 2;
       SetTargetFPS(FPS);
     }
+
+    if (IsKeyPressed(KEY_R)) {
+      simulation.CreateRandState();
+    }
+    if (IsKeyPressed(KEY_C)) {
+      simulation.ClearGrid();
+    }
     BeginDrawing();
 
     simulation.Update();

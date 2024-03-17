@@ -57,3 +57,15 @@ void Simulation::Update() {
     grid = tmpGrid;
   }
 }
+
+void Simulation::ClearGrid() {
+  if (!IsRunning()) {
+    grid.Clear();
+  }
+}
+
+void Simulation::CreateRandState() {
+  if (!IsRunning()) {
+    grid.FillRand();
+  }
+}

@@ -15,6 +15,7 @@ class Grid {
   int GetNumRows() { return rows; }
   int GetNumCols() { return cols; }
   void FillRand();
+  void Clear();
 
  private:
   int rows;

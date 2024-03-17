@@ -5,9 +5,9 @@ class Simulation {
   Simulation(int width, int height, int cellSize)
       : grid(width, height, cellSize),
         tmpGrid(width, height, cellSize),
-        running(false) {
-    grid.FillRand();
-  };
+        running(false){
+            /* grid.FillRand(); */
+        };
   void Draw();
   void SetCellValue(int row, int col, int value);
   int CountLiveNeighbors(int row, int col);
@@ -15,6 +15,8 @@ class Simulation {
   bool IsRunning() { return running; }
   void Start() { running = true; }
   void Stop() { running = false; }
+  void ClearGrid();
+  void CreateRandState();
 
  private:
   Grid grid;
