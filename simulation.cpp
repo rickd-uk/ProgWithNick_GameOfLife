@@ -69,3 +69,9 @@ void Simulation::CreateRandState() {
     grid.FillRand();
   }
 }
+
+void Simulation::ToggleCell(int row, int col) {
+  if (!IsRunning()) {
+    grid.ToggleCell(row, col);
+  }
+}

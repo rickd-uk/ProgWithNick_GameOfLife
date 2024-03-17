@@ -9,8 +9,8 @@
 int main(void) {
   Color gray = {29, 29, 29, TRANSPARENCY};
 
-  int FPS = 12;
-  const int CELL_SIZE = 4;
+  int FPS = 20;
+  const int CELL_SIZE = 6;
   const int WIN_WIDTH = 1200;
   const int WIN_HEIGHT = 800;
 
@@ -19,6 +19,12 @@ int main(void) {
   Simulation simulation{WIN_WIDTH, WIN_HEIGHT, CELL_SIZE};
 
   while (!WindowShouldClose()) {
+    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
+      Vector2 mousePosition = GetMousePosition();
+      int row = mousePosition.y / CELL_SIZE;
+      int col = mousePosition.x / CELL_SIZE;
+      simulation.ToggleCell(row, col);
+    }
     if (IsKeyPressed(KEY_ENTER)) {
       simulation.Start();
       SetWindowTitle("Game of Life is running!");

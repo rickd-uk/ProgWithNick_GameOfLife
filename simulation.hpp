@@ -17,6 +17,7 @@ class Simulation {
   void Stop() { running = false; }
   void ClearGrid();
   void CreateRandState();
+  void ToggleCell(int row, int col);
 
  private:
   Grid grid;

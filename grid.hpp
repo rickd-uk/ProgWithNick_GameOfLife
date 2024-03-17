@@ -16,6 +16,7 @@ class Grid {
   int GetNumCols() { return cols; }
   void FillRand();
   void Clear();
+  void ToggleCell(int row, int col);
 
  private:
   int rows;
