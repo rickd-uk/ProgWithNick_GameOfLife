@@ -19,6 +19,14 @@ int main(void) {
   Simulation simulation{WIN_WIDTH, WIN_HEIGHT, CELL_SIZE};
 
   while (!WindowShouldClose()) {
+    if (IsKeyPressed(KEY_ENTER)) {
+      simulation.Start();
+      SetWindowTitle("Game of Life is running!");
+    }
+    if (IsKeyPressed(KEY_SPACE)) {
+      simulation.Stop();
+      SetWindowTitle("Game of Life has stopped");
+    }
     BeginDrawing();
 
     simulation.Update();

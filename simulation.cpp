@@ -33,25 +33,27 @@ int Simulation::CountLiveNeighbors(int row, int col) {
 };
 
 void Simulation::Update() {
-  for (int row = 0; row < grid.GetNumRows(); row++) {
-    for (int col = 0; col < grid.GetNumCols(); col++) {
-      int liveNeighbors = CountLiveNeighbors(row, col);
-      int cellValue = grid.GetValue(row, col);
+  if (IsRunning()) {
+    for (int row = 0; row < grid.GetNumRows(); row++) {
+      for (int col = 0; col < grid.GetNumCols(); col++) {
+        int liveNeighbors = CountLiveNeighbors(row, col);
+        int cellValue = grid.GetValue(row, col);
 
-      if (cellValue == 1) {
-        if (liveNeighbors > 3 || liveNeighbors < 2) {
-          tmpGrid.SetValue(row, col, 0);
+        if (cellValue == 1) {
+          if (liveNeighbors > 3 || liveNeighbors < 2) {
+            tmpGrid.SetValue(row, col, 0);
+          } else {
+            tmpGrid.SetValue(row, col, 1);
+          }
         } else {
-          tmpGrid.SetValue(row, col, 1);
-        }
-      } else {
-        if (liveNeighbors == 3) {
-          tmpGrid.SetValue(row, col, 1);
-        } else {
-          tmpGrid.SetValue(row, col, 0);
+          if (liveNeighbors == 3) {
+            tmpGrid.SetValue(row, col, 1);
+          } else {
+            tmpGrid.SetValue(row, col, 0);
+          }
         }
       }
     }
+    grid = tmpGrid;
   }
-  grid = tmpGrid;
 }
