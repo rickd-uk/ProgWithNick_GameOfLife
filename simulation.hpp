@@ -3,7 +3,9 @@
 class Simulation {
  public:
   Simulation(int width, int height, int cellSize)
-      : grid(width, height, cellSize), tmpGrid(width, height, cellSize){};
+      : grid(width, height, cellSize), tmpGrid(width, height, cellSize) {
+    grid.FillRand();
+  };
   void Draw();
   void SetCellValue(int row, int col, int value);
   int CountLiveNeighbors(int row, int col);

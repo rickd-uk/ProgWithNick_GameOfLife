@@ -10,9 +10,9 @@ int main(void) {
   Color gray = {29, 29, 29, TRANSPARENCY};
 
   const int FPS = 12;
-  const int CELL_SIZE = 25;
-  const int WIN_WIDTH = 750;
-  const int WIN_HEIGHT = 750;
+  const int CELL_SIZE = 4;
+  const int WIN_WIDTH = 1200;
+  const int WIN_HEIGHT = 800;
 
   InitWindow(WIN_WIDTH, WIN_HEIGHT, "Game Of Life");
   SetTargetFPS(FPS);
@@ -21,6 +21,7 @@ int main(void) {
   while (!WindowShouldClose()) {
     BeginDrawing();
 
+    simulation.Update();
     ClearBackground(gray);
     simulation.Draw();
 

@@ -44,8 +44,7 @@ void Simulation::Update() {
         } else {
           tmpGrid.SetValue(row, col, 1);
         }
-      }
-      if (cellValue == 0) {
+      } else {
         if (liveNeighbors == 3) {
           tmpGrid.SetValue(row, col, 1);
         } else {

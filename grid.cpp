@@ -33,3 +33,12 @@ bool Grid::IsWithinBounds(int row, int col) {
   }
   return false;
 }
+
+void Grid::FillRand() {
+  for (int row = 0; row < rows; row++) {
+    for (int col = 1; col < cols; col++) {
+      int randVal = GetRandomValue(0, 4);
+      cells[row][col] = (randVal == 4) ? 1 : 0;
+    }
+  }
+}
