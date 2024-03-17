@@ -30,3 +30,11 @@ int main(void) {
   CloseWindow();
   return 0;
 }
+
+// Rule #1  If a cell is alive, it dies <2 || >3 live neighbors, else it stays
+// alive Rule #2  If a cell is dead, it can come alive ONLY if it has exactly 3
+// live neighbors
+
+// #1  alive_cell + <2 live_neighbor -> dies  ||
+//     alive_cell + >3 live_neighbor -> dies
+// #2  dead_cell + 3 live_neighbors -> come alive
