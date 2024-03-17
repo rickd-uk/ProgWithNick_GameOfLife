@@ -9,7 +9,7 @@
 int main(void) {
   Color gray = {29, 29, 29, TRANSPARENCY};
 
-  const int FPS = 12;
+  int FPS = 12;
   const int CELL_SIZE = 4;
   const int WIN_WIDTH = 1200;
   const int WIN_HEIGHT = 800;
@@ -26,6 +26,13 @@ int main(void) {
     if (IsKeyPressed(KEY_SPACE)) {
       simulation.Stop();
       SetWindowTitle("Game of Life has stopped");
+    }
+    if (IsKeyPressed(KEY_UP)) {
+      FPS += 2;
+      SetTargetFPS(FPS);
+    } else if (IsKeyPressed(KEY_DOWN)) {
+      FPS -= 2;
+      SetTargetFPS(FPS);
     }
     BeginDrawing();
 
