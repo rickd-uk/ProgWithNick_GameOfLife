@@ -12,6 +12,8 @@ class Grid {
   void SetValue(int row, int col, int value);
   int GetValue(int row, int col);
   bool IsWithinBounds(int row, int col);
+  int GetNumRows() { return rows; }
+  int GetNumCols() { return cols; }
 
  private:
   int rows;

@@ -22,11 +22,12 @@ int Simulation::CountLiveNeighbors(int row, int col) {
       {1, 1},    // lower right
   };
   for (const auto& offset : neighborOffsets) {
-    int neighborRow = row + offset.first;
-    int neighborCol = col + offset.second;
+    int neighborRow =
+        (row + offset.first + grid.GetNumRows()) % grid.GetNumRows();
+    int neighborCol =
+        (col + offset.second + grid.GetNumCols()) % grid.GetNumCols();
 
     liveNeighbors += grid.GetValue(neighborRow, neighborCol);
   }
   return liveNeighbors;
 };
-
